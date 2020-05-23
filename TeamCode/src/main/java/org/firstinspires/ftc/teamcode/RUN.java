@@ -68,7 +68,9 @@ public class RUN extends LinearOpMode {
 			delay(1000L);
 
 			robot.tankDrivetrain.setVelocity(0,0);
-			spotDetection();
+			delay(200L);
+
+			spotDetection(poses);
 			delay(500L);
 
 			telemetry.addData("Heading", robot.tankOdometry.position.rot);
@@ -79,7 +81,7 @@ public class RUN extends LinearOpMode {
 		odometryWriteManager.record(poses.toArray(new pose[0]));
 	}
 
-	void spotDetection(){
+	void spotDetection(List<pose> poses){
 		if(ultraviolet.contours.size() > 0)
 			poses.add(robot.tankOdometry.position.setHasDirt());
 		else poses.add(robot.tankOdometry.position);
