@@ -8,7 +8,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.teamcode.utils.UnitConversion;
 
 public class TankOdometry {
-	final double distanceBetweenWheels = 12;//TODO
+	final double distanceBetweenWheels = 12;//inches
 
 	DcMotor left, right;
 	public Imu imu;

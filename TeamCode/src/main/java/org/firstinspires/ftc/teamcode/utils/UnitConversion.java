@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.utils;
 
 public class UnitConversion {
 
-	static final double wheelCircumference = 0.104 * 12;//inches
+	static final double wheelCircumference = 7.854;//inches
 	static final double ticksPerRotation = 1120;
 
     public static double getFeetToTicks(double feet){
