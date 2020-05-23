@@ -1,9 +1,9 @@
 package org.firstinspires.ftc.teamcode.utils;
 
-public class UnitConversion {
+import static org.firstinspires.ftc.teamcode.utils.Const.ticksPerRotation;
+import static org.firstinspires.ftc.teamcode.utils.Const.wheelCircumference;
 
-	static final double wheelCircumference = 7.854;//inches
-	static final double ticksPerRotation = 1120;
+public class UnitConversion {
 
     public static double getFeetToTicks(double feet){
         double rotations = feet / wheelCircumference;

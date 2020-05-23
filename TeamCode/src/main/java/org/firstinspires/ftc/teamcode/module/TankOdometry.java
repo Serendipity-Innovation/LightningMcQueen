@@ -5,10 +5,12 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcontroller.internal.pose;
 import org.firstinspires.ftc.robotcore.external.navigation.Position;
+import org.firstinspires.ftc.teamcode.utils.Const;
 import org.firstinspires.ftc.teamcode.utils.UnitConversion;
 
+import static org.firstinspires.ftc.teamcode.utils.Const.distanceBetweenWheels;
+
 public class TankOdometry {
-	final double distanceBetweenWheels = 12;//inches
 
 	DcMotor left, right;
 	public Imu imu;
@@ -115,6 +117,12 @@ public class TankOdometry {
 		double dy = (radius + 0.5 * distanceBetweenWheels) * Math.sin(angle);
 
 		return new pose(dx, dy, angle);
+
+		//DID YOU DID YOU DID YOU KNOW?
+		//IN JAVA JAVA JAVA YOU CAN CAN
+		//IMPORT NOT ONLY: NOT ONLY CLASSES
+		//BUT ALSO BUT ALSO ALSO FIELDS!!!!!!!!!
+		//YAAAY FOR C CONVENTIONS
 	}
 
 }
