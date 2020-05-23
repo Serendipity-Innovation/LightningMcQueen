@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import org.opencv.core.Mat;
 
+
+//TODO add memory management later
 public class RecyclingPlant {
 	//yes, a String Key is okay b/c hashmap uses .equals()
 	static HashMap<String, Mat> mats = new HashMap<>();

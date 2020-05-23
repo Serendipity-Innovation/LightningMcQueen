@@ -31,48 +31,75 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
 
+import org.firstinspires.ftc.robotcontroller.internal.odometryWriteManager;
 import org.firstinspires.ftc.teamcode.ImageProc.Detector;
+import org.firstinspires.ftc.teamcode.module.Robot;
+import org.firstinspires.ftc.robotcontroller.internal.pose;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @TeleOp(name="Run", group="Linear Opmode")
 
 public class RUN extends LinearOpMode {
-
-	Detector ultraviolet;
+	Robot      robot;
+	Detector   ultraviolet;
+	List<pose> poses = new ArrayList<pose>();
 
 	@Override
 	public void runOpMode() {
+		//INITIALIZE
 		telemetry.addData("Status", "Initialized");
 		telemetry.update();
 		telemetry.setAutoClear(false);
 
 		waitForStart();
 
+		//BEGIN
+		robot = new Robot(this);
 		ultraviolet = new Detector(this);
 		ultraviolet.start();
 
+		//LOOP
 		while (opModeIsActive()) {
+			// Move at 1rot/sec and turn left
+			robot.tankDrivetrain.setVelocity(360,-0.7);
+			delay(1000L);
 
+			robot.tankDrivetrain.setVelocity(0,0);
 			spotDetection();
+			delay(500L);
 
+			telemetry.addData("Heading", robot.tankOdometry.position.rot);
+			telemetry.update();
 		}
 
 		ultraviolet.close();
+		odometryWriteManager.record(poses.toArray(new pose[0]));
 	}
 
 	void spotDetection(){
+		if(ultraviolet.contours.size() > 0)
+			poses.add(robot.tankOdometry.position.setHasDirt());
+		else poses.add(robot.tankOdometry.position);
+
+
 		//set light to regular
+		robot.lightShield.UVoff();
 		ultraviolet.setInputType(Detector.inputType.noUV);
 
 		//set light to UV
+		robot.lightShield.UVon();
 		ultraviolet.setInputType(Detector.inputType.UV);
 
 		//update to tele
-		telemetry.addData("[Imgproc] Spots Found: ",ultraviolet.contours.size());
+		telemetry.addData("Spots Found",ultraviolet.contours.size());
 
+	}
+
+	void delay(Long delay){
+		Long start = System.currentTimeMillis();
+		while (System.currentTimeMillis() - start < delay) {/*wait*/}
 	}
 }
