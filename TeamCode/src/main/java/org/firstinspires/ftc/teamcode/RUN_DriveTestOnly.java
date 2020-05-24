@@ -34,17 +34,17 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcontroller.internal.odometryWriteManager;
 import org.firstinspires.ftc.robotcontroller.internal.pose;
-import org.firstinspires.ftc.teamcode.ImageProc.Detector;
+// import org.firstinspires.ftc.teamcode.ImageProc.Detector;
 import org.firstinspires.ftc.teamcode.module.Robot;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@TeleOp(name="Run", group="Linear Opmode")
+@TeleOp(name="RunMotors", group="Linear Opmode")
 
 public class RUN_DriveTestOnly extends LinearOpMode {
 	Robot      robot;
-	Detector   ultraviolet;
+	// Detector   ultraviolet;
 	List<pose> poses = new ArrayList<pose>();
 
 	@Override
