@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.robotcontroller.internal;
 
-import org.firstinspires.ftc.teamcode.utils.fileManager;
-
 public class odometryWriteManager extends fileManager {
 	public static void record(pose[] poses){
 		StringBuilder data = new StringBuilder();

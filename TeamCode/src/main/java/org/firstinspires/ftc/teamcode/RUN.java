@@ -89,10 +89,12 @@ public class RUN extends LinearOpMode {
 
 		//set light to regular
 		robot.lightShield.UVoff();
+		delay(100L);
 		ultraviolet.setInputType(Detector.inputType.noUV);
 
 		//set light to UV
 		robot.lightShield.UVon();
+		delay(100L);
 		ultraviolet.setInputType(Detector.inputType.UV);
 
 		//update to tele
