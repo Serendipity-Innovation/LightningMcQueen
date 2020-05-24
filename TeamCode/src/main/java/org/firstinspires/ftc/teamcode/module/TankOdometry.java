@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.module;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -11,33 +13,35 @@ import org.firstinspires.ftc.teamcode.utils.UnitConversion;
 import static org.firstinspires.ftc.teamcode.utils.Const.distanceBetweenWheels;
 
 public class TankOdometry {
-
+	LinearOpMode opMode;
 	DcMotor left, right;
 	public Imu imu;
 
 	// inches, radians
 	public pose position = new pose(0,0,0);
 
-	public TankOdometry(HardwareMap hardwareMap){
-		left = hardwareMap.get(DcMotor.class, "leftWheel");
-		right = hardwareMap.get(DcMotor.class, "rightWheel");
-		imu = new Imu(hardwareMap);
+	public TankOdometry(OpMode opMode){
+		if(!(opMode instanceof LinearOpMode)) opMode.telemetry.addData("Error","Linear Op Mode");
+		this.opMode = (LinearOpMode) opMode;
+
+		left = opMode.hardwareMap.get(DcMotor.class, "leftWheel");
+		right = opMode.hardwareMap.get(DcMotor.class, "rightWheel");
+		imu = new Imu(opMode.hardwareMap);
 
 		new Thread(this::cycle).start();
 
-		//TODO stopping opmode will crash
 	}
 
 	private void cycle(){
 		double leftPos = 0;
 		double rightPos = 0;
 
-		while (true){
-			//TODO two invocations of getCurrPos(). possibility of encoder drift
+		while (opMode.opModeIsActive()){
+
 			double leftDiffTicks = left.getCurrentPosition() - leftPos;
 			double rightDiffTicks = right.getCurrentPosition() - rightPos;
-			leftPos = left.getCurrentPosition();
-			rightPos = right.getCurrentPosition();
+			leftPos = leftDiffTicks + leftPos;
+			rightPos = rightDiffTicks + rightPos;
 
 			double leftDiff = UnitConversion.getTicksToInches(leftDiffTicks);
 			double rightDiff = UnitConversion.getTicksToInches(rightDiffTicks);
@@ -123,6 +127,8 @@ public class TankOdometry {
 		//IMPORT NOT ONLY: NOT ONLY CLASSES
 		//BUT ALSO BUT ALSO ALSO FIELDS!!!!!!!!!
 		//YAAAY FOR C CONVENTIONS
+
+		//You can also <from __future__ import brackets> in python
 	}
 
 }

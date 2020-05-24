@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.module;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -17,7 +18,7 @@ public class Robot {
 
 		lightShield = new LightShield(hardwareMap);
 		tankDrivetrain = new TankDrivetrain(hardwareMap);
-		tankOdometry = new TankOdometry(hardwareMap);
+		tankOdometry = new TankOdometry(opMode);
 
 		opMode.telemetry.addData("Robot", "Initialized");
 	}
