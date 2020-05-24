@@ -54,7 +54,7 @@ public class Detector {
     }
 
     public void start() {
-	    phoneCam.startStreaming(480, 360, OpenCvCameraRotation.SIDEWAYS_RIGHT);
+	    phoneCam.startStreaming(640, 480, OpenCvCameraRotation.SIDEWAYS_RIGHT);
     }
 
     public void close() {
