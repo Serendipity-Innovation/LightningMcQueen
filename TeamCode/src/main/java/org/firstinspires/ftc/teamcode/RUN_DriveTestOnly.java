@@ -35,6 +35,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.robotcontroller.internal.odometryWriteManager;
 import org.firstinspires.ftc.robotcontroller.internal.pose;
 // import org.firstinspires.ftc.teamcode.ImageProc.Detector;
+import org.firstinspires.ftc.teamcode.module.LightShield;
 import org.firstinspires.ftc.teamcode.module.Robot;
 
 import java.util.ArrayList;
@@ -46,6 +47,7 @@ public class RUN_DriveTestOnly extends LinearOpMode {
 	Robot      robot;
 	// Detector   ultraviolet;
 	List<pose> poses = new ArrayList<pose>();
+
 
 	@Override
 	public void runOpMode() {
@@ -70,6 +72,7 @@ public class RUN_DriveTestOnly extends LinearOpMode {
 			robot.tankDrivetrain.setVelocity(0,0);
 			delay(200L);
 
+			robot.lightShield.changeHeight(400);
 			// spotDetection(poses);
 			delay(500L);
 
