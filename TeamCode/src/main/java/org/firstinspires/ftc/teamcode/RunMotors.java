@@ -66,7 +66,7 @@ public class RunMotors extends LinearOpMode {
 		//LOOP
 		while (opModeIsActive()) {
 			// Move at 1rot/sec and turn left
-			robot.tankDrivetrain.setVelocity(200,0);
+			robot.tankDrivetrain.setVelocity(500,0);
 			delay(5000L);
 
 			robot.tankDrivetrain.setVelocity(0,0);
