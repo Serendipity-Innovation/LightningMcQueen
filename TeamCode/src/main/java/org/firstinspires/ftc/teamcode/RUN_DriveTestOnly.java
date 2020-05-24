@@ -66,8 +66,8 @@ public class RUN_DriveTestOnly extends LinearOpMode {
 		//LOOP
 		while (opModeIsActive()) {
 			// Move at 1rot/sec and turn left
-			robot.tankDrivetrain.setVelocity(360,-0.7);
-			delay(1000L);
+			robot.tankDrivetrain.setVelocity(360000,-0.7);
+			delay(3000L);
 
 			robot.tankDrivetrain.setVelocity(0,0);
 			delay(200L);
