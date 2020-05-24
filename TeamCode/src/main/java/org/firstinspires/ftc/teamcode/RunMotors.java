@@ -77,7 +77,8 @@ public class RunMotors extends LinearOpMode {
 			robot.lightShield.UVoff();
 			// spotDetection(poses);
 			delay(5000L);
-
+			robot.lightShield.changeHeight(2000);
+			delay(5000L);
 			telemetry.addData("Heading", robot.tankOdometry.position.rot);
 			telemetry.update();
 		}
