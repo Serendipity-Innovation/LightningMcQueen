@@ -36,7 +36,7 @@ public class TankDrivetrain {
 	 * @param turn -1 for full left, 1 for full right
 	 */
 	public void setVelocity(double speed,double turn){
-		left.setVelocity(speed * scaleTo(-turn), AngleUnit.DEGREES);
+		left.setVelocity(speed * scaleTo(turn), AngleUnit.DEGREES);
 		right.setVelocity(speed * scaleTo(turn), AngleUnit.DEGREES);
 	}
 
