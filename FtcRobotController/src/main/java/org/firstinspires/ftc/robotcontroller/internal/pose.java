@@ -35,6 +35,6 @@ public class pose {
 	}
 
 	public String toString(){
-		return String.valueOf(x)+" "+String.valueOf(y)+" "+String.valueOf(rot);
+		return String.valueOf(x)+" "+String.valueOf(y)+" "+String.valueOf(rot)+" "+String.valueOf(hasDirt);
 	}
 }
