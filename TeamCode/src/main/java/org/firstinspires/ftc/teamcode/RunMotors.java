@@ -43,7 +43,7 @@ import java.util.List;
 
 @TeleOp(name="RunMotors", group="Linear Opmode")
 
-public class RUN_Motors extends LinearOpMode {
+public class RunMotors extends LinearOpMode {
 	Robot      robot;
 	// Detector   ultraviolet;
 	List<pose> poses = new ArrayList<pose>();
