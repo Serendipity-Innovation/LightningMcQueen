@@ -72,7 +72,7 @@ public class RunMotors extends LinearOpMode {
 			robot.tankDrivetrain.setVelocity(0,0);
 			delay(500L);
 
-			robot.lightShield.changeHeight(400);
+			robot.lightShield.changeHeight(1120);
 			// spotDetection(poses);
 			delay(5000L);
 
