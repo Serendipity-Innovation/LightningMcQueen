@@ -43,7 +43,7 @@ import java.util.List;
 
 @TeleOp(name="RunMotors", group="Linear Opmode")
 
-public class RUN_DriveTestOnly extends LinearOpMode {
+public class RUN_Motors extends LinearOpMode {
 	Robot      robot;
 	// Detector   ultraviolet;
 	List<pose> poses = new ArrayList<pose>();
@@ -66,15 +66,15 @@ public class RUN_DriveTestOnly extends LinearOpMode {
 		//LOOP
 		while (opModeIsActive()) {
 			// Move at 1rot/sec and turn left
-			robot.tankDrivetrain.setVelocity(360000,-0.7);
-			delay(3000L);
+			robot.tankDrivetrain.setVelocity(200,-0.7);
+			delay(5000L);
 
 			robot.tankDrivetrain.setVelocity(0,0);
-			delay(200L);
+			delay(500L);
 
 			robot.lightShield.changeHeight(400);
 			// spotDetection(poses);
-			delay(500L);
+			delay(5000L);
 
 			telemetry.addData("Heading", robot.tankOdometry.position.rot);
 			telemetry.update();
