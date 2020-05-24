@@ -14,7 +14,7 @@ public class LightShield {
 	public LightShield(HardwareMap hardwareMap){
 		//set up motors
 		linearActuator  = hardwareMap.get(DcMotor.class, "linearActuator");
-		UVToggle = hardwareMap.get(Servo.class, "UVToggle");
+		UVToggle = hardwareMap.get(Servo.class, "uvToggle");
 
 		// Set wheels to run with encoders
 		linearActuator.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

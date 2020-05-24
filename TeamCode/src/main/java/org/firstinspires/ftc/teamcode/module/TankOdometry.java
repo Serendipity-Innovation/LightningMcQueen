@@ -19,8 +19,8 @@ public class TankOdometry {
 	public pose position = new pose(0,0,0);
 
 	public TankOdometry(HardwareMap hardwareMap){
-		left = hardwareMap.get(DcMotor.class, "wheelOdometry1");
-		right = hardwareMap.get(DcMotor.class, "wheelOdometry2");
+		left = hardwareMap.get(DcMotor.class, "leftWheel");
+		right = hardwareMap.get(DcMotor.class, "rightWheel");
 		imu = new Imu(hardwareMap);
 
 		new Thread(this::cycle).start();

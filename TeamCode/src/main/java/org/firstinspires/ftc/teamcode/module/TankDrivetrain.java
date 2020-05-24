@@ -11,8 +11,8 @@ public class TankDrivetrain {
 	DcMotorEx left, right;
 	public TankDrivetrain(HardwareMap hardwareMap){
 
-		left  = (DcMotorEx) hardwareMap.get(DcMotor.class, "left_wheel");
-		right = (DcMotorEx) hardwareMap.get(DcMotor.class, "right_wheel");
+		left  = (DcMotorEx) hardwareMap.get(DcMotor.class, "leftWheel");
+		right = (DcMotorEx) hardwareMap.get(DcMotor.class, "rightWheel");
 
 		// Wheels are mounted opposite so one must be reversed
 		left.setDirection(DcMotor.Direction.FORWARD);
