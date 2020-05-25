@@ -26,9 +26,12 @@ public class DemoMode extends LinearOpMode {
 
         waitForStart();
         while (opModeIsActive()){
+            // Drivetrain
             leftWheel.setPower(-gamepad2.left_stick_y);
             rightWheel.setPower(-gamepad2.right_stick_y);
+
             linearActuator.setPower(gamepad2.left_stick_x);
+            linearActuator.setPower(-gamepad2.right_stick_x);
             if (gamepad2.a){ // a uncovers the light
                 uvToggle.setPosition(unCoverLightPosition);
             }
