@@ -31,8 +31,14 @@ public class DemoMode extends LinearOpMode {
             rightWheel.setPower(-gamepad2.right_stick_y);
 
             // Linear Actuator movement
-            linearActuator.setPower(gamepad2.left_stick_x);
-            linearActuator.setPower(-gamepad2.left_stick_x);
+            if (gamepad2.dpad_down){
+                linearActuator.setPower(250);
+                wait(2000);
+            }
+            if (gamepad2.dpad_up){
+                linearActuator.setPower(-250);
+                wait(2000);
+            }
 
             // UV Toggle
             if (gamepad2.a){ // a uncovers the light
