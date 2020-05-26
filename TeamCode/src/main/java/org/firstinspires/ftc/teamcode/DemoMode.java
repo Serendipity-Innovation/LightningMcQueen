@@ -22,7 +22,13 @@ public class DemoMode extends LinearOpMode {
         linearActuator = hardwareMap.dcMotor.get("linearActuator");
         uvToggle = hardwareMap.servo.get("uvToggle");
 
+        // Use linear actuator encoders
+        linearActuator.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        linearActuator.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
         leftWheel.setDirection(DcMotor.Direction.REVERSE);
+        int currentPosition;
+        int moveAmount;
 
         waitForStart();
         while (opModeIsActive()){
@@ -31,12 +37,14 @@ public class DemoMode extends LinearOpMode {
             rightWheel.setPower(-gamepad2.right_stick_y);
 
             // Linear Actuator movement
+            currentPosition = linearActuator.getCurrentPosition();
             if (gamepad2.dpad_down){
-                linearActuator.setPower(5);
-                Thread.sleep(100);
+                moveAmount = currentPosition - 30;
+                linearActuator.setTargetPosition(moveAmount);
             }
             if (gamepad2.dpad_up){
-                linearActuator.setPower(-5);
+                moveAmount = currentPosition + 30;
+                linearActuator.setTargetPosition(moveAmount);
                 Thread.sleep(100);
             }
 
