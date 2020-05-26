@@ -36,11 +36,9 @@ public class DemoMode extends LinearOpMode {
             // UV Toggle
             if (gamepad2.a){ // a uncovers the light
                 uvToggle.setPosition(unCoverLightPosition);
-                wait(5000);
             }
             if (gamepad2.b){ // b covers the light
                 uvToggle.setPosition(coverLightPosition);
-                wait(5000);
             }
             idle();
         }
