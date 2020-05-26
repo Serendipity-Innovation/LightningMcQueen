@@ -33,22 +33,24 @@ public class DemoMode extends LinearOpMode {
             // Linear Actuator movement
             if (gamepad2.dpad_down){
                 linearActuator.setPower(250);
-                Thread.sleep(2000);
+                Thread.sleep(500);
             }
             if (gamepad2.dpad_up){
                 linearActuator.setPower(-250);
-                Thread.sleep(2000);
+                Thread.sleep(500);
             }
 
             // UV Toggle
             if (gamepad2.a){ // a uncovers the light
                 uvToggle.setPosition(unCoverLightPosition);
                 telemetry.addData("UncoverLightPosition", "Uncovered, good job Nav!");
+                Thread.sleep(1000);
             }
 
             if (gamepad2.b){ // b covers the light
                 uvToggle.setPosition(coverLightPosition);
                 telemetry.addData("CoverLightPosition", "Covered, good job Nav!");
+                Thread.sleep(1000);
             }
             telemetry.update();
             idle();
