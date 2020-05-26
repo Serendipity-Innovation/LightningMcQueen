@@ -32,12 +32,12 @@ public class DemoMode extends LinearOpMode {
 
             // Linear Actuator movement
             if (gamepad2.dpad_down){
-                linearActuator.setPower(50);
-                Thread.sleep(200);
+                linearActuator.setPower(5);
+                Thread.sleep(100);
             }
             if (gamepad2.dpad_up){
-                linearActuator.setPower(-50);
-                Thread.sleep(200);
+                linearActuator.setPower(-5);
+                Thread.sleep(100);
             }
 
             // UV Toggle
