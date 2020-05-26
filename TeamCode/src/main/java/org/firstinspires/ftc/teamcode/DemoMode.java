@@ -36,9 +36,11 @@ public class DemoMode extends LinearOpMode {
             // UV Toggle
             if (gamepad2.a){ // a uncovers the light
                 uvToggle.setPosition(unCoverLightPosition);
+                telemetry.addData("UncoverLightPosition", "Uncovered, good job Nav!");
             }
             if (gamepad2.b){ // b covers the light
                 uvToggle.setPosition(coverLightPosition);
+                telemetry.addData("CoverLightPosition", "Covered, good job Nav!");
             }
             idle();
         }
