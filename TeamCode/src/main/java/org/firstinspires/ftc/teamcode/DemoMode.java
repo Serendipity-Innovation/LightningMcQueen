@@ -39,11 +39,11 @@ public class DemoMode extends LinearOpMode {
             // Linear Actuator movement
             currentPosition = linearActuator.getCurrentPosition();
             if (gamepad2.dpad_down){
-                moveAmount = currentPosition - 30;
+                moveAmount = currentPosition - 300;
                 linearActuator.setTargetPosition(moveAmount);
             }
             if (gamepad2.dpad_up){
-                moveAmount = currentPosition + 30;
+                moveAmount = currentPosition + 300;
                 linearActuator.setTargetPosition(moveAmount);
             }
 
