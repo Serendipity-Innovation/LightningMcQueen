@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp (name = "DemoMode", group = "BasicOpMode")
 public class DemoMode extends LinearOpMode {
-    private static final double coverLightPosition = 0;
-    private static final double unCoverLightPosition = 1;
+    private static final double coverLightPosition = 0.0;
+    private static final double unCoverLightPosition = 1.0;
     private DcMotor leftWheel;
     private DcMotor rightWheel;
     private DcMotor linearActuator;
