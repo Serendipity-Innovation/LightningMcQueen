@@ -42,6 +42,7 @@ public class DemoMode extends LinearOpMode {
                 uvToggle.setPosition(coverLightPosition);
                 telemetry.addData("CoverLightPosition", "Covered, good job Nav!");
             }
+            telemetry.update();
             idle();
         }
     }
